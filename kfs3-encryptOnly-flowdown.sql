@@ -21,6 +21,7 @@ BEGIN
 END;
 /
 
+-- NOTE: It is the responsibility of whatever is running this script (Jenkins job, human user) to hydrate the ${ENCRYPTION_KEY} with some 8-byte hex string value
 -- NEW: 9000000000000 + ROW# -  for account numbers 
 UPDATE fp_dv_ach_t set dv_payee_acct_nbr = DES_ENCRYPT( ROWNUM + 9000000000000, '${ENCRYPTION_KEY}');
 UPDATE fp_dv_wire_trnfr_t set dv_payee_acct_nbr = DES_ENCRYPT( ROWNUM + 9000000000000, '${ENCRYPTION_KEY}');
