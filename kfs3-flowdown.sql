@@ -917,7 +917,7 @@ select KRIM_ROLE_MBR_ID_S.NEXTVAL, 1, SYS_GUID(), '1050036', 'T00000000000000539
 insert into krim_grp_mbr_t ( grp_mbr_id, ver_nbr, obj_id, grp_id, mbr_id, mbr_typ_cd ) 
 select KRIM_ROLE_MBR_ID_S.NEXTVAL, 1, SYS_GUID(), '1050033', 'T000000000000005398', 'P' from dual; 
 
-UPDATE KULOWNER.KRNS_PARM_T SET VAL = 'Y' WHERE PARM_NM = 'SHOW_BACK_DOOR_LOGIN_IND';
+UPDATE KULOWNER.KRNS_PARM_T SET TXT = 'Y' WHERE PARM_NM = 'SHOW_BACK_DOOR_LOGIN_IND';
 
 -- ====================================================================================================================
 -- Add Permission/Role for Backdoor Access Control
@@ -1032,4 +1032,3 @@ insert into krim_role_mbr_t ( role_mbr_id, ver_nbr, obj_id, role_id, mbr_id, mbr
 -- amandazhang
 insert into krim_role_mbr_t ( role_mbr_id, ver_nbr, obj_id, role_id, mbr_id, mbr_typ_cd) values (KRIM_ROLE_MBR_ID_S.NEXTVAL, 1, SYS_GUID(), (select role_id from krim_role_t where role_nm='Back Door Login'), '119780814779', 'P');
 	
-commit;
